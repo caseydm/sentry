@@ -67,3 +67,4 @@ target/
 
 *.tar
 data/
+.idea/
