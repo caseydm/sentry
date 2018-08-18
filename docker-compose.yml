@@ -20,33 +20,39 @@ services:
   smtp:
     restart: unless-stopped
     image: tianon/exim4
-    entrypoint: ["chamber", "exec", "sentry", "--"]
+    entrypoint: bin/bash
+    cmd: ["chamber", "exec", "sentry", "--"]
 
   memcached:
     restart: unless-stopped
     image: memcached:1.4
-    entrypoint: ["chamber", "exec", "sentry", "--"]
+    entrypoint: bin/bash
+    cmd: ["chamber", "exec", "sentry", "--"]
 
   redis:
     restart: unless-stopped
     image: redis:3.2-alpine
-    entrypoint: ["chamber", "exec", "sentry", "--"]
+    entrypoint: bin/bash
+    cmd: ["chamber", "exec", "sentry", "--"]
 
   web:
     <<: *defaults
     ports:
       - '9000:9000'
-    entrypoint: ["chamber", "exec", "sentry", "--"]
+    entrypoint: bin/bash
+    cmd: ["chamber", "exec", "sentry", "--"]
 
   cron:
     <<: *defaults
     command: run cron
-    entrypoint: ["chamber", "exec", "sentry", "--"]
+    entrypoint: bin/bash
+    cmd: ["chamber", "exec", "sentry", "--"]
 
   worker:
     <<: *defaults
     command: run worker
-    entrypoint: ["chamber", "exec", "sentry", "--"]
+    entrypoint: bin/bash
+    cmd: ["chamber", "exec", "sentry", "--"]
 
 
 volumes:
