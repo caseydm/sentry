@@ -7,7 +7,6 @@ x-defaults: &defaults
     - redis
     - memcached
     - smtp
-  entrypoint: ["/bin/bash", "chamber exec sentry --"]
 
   environment:
     SENTRY_MEMCACHED_HOST: memcached
@@ -37,11 +36,11 @@ services:
 
   cron:
     <<: *defaults
-    command: run cron
+    command: chamber exex sentry run cron
 
   worker:
     <<: *defaults
-    command: run worker
+    command: chamber exec sentry run worker
 
 
 volumes:
