@@ -7,6 +7,8 @@ x-defaults: &defaults
     - redis
     - memcached
     - smtp
+  entrypoint: "bin/bash"
+  command: ["chamber", "exec", "sentry", "--"]
 
   environment:
     SENTRY_MEMCACHED_HOST: memcached
@@ -20,39 +22,27 @@ services:
   smtp:
     restart: unless-stopped
     image: tianon/exim4
-    entrypoint: "bin/bash"
-    command: ["chamber", "exec", "sentry", "--"]
 
   memcached:
     restart: unless-stopped
     image: memcached:1.4
-    entrypoint: "bin/bash"
-    command: ["chamber", "exec", "sentry", "--"]
 
   redis:
     restart: unless-stopped
     image: redis:3.2-alpine
-    entrypoint: "bin/bash"
-    command: ["chamber", "exec", "sentry", "--"]
 
   web:
     <<: *defaults
     ports:
       - '9000:9000'
-    entrypoint: "bin/bash"
-    command: ["chamber", "exec", "sentry", "--"]
 
   cron:
     <<: *defaults
     command: run cron
-    entrypoint: "bin/bash"
-    command: ["chamber", "exec", "sentry", "--"]
 
   worker:
     <<: *defaults
     command: run worker
-    entrypoint: "bin/bash"
-    command: ["chamber", "exec", "sentry", "--"]
 
 
 volumes:
