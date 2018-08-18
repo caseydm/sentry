@@ -7,7 +7,6 @@ x-defaults: &defaults
     - redis
     - memcached
     - smtp
-  entrypoint: "bin/bash"
   command: ["chamber", "exec", "sentry", "--"]
 
   environment:
