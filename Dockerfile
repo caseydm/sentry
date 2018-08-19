@@ -2,9 +2,9 @@ FROM sentry:9.0-onbuild
 ENV GOPATH=$HOME/go
 ENV PATH=$PATH:$GOPATH/bin
 RUN set -x \
-    && sudo add-apt-repository ppa:gophers/archive \
-    && sudo apt-get update \
-    && sudo apt-get install golang-1.10-go \
+    && add-apt-repository ppa:gophers/archive \
+    && apt-get update \
+    && apt-get install golang-1.10-go \
     && go get github.com/segmentio/chamber
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
