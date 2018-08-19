@@ -32,4 +32,4 @@ if [ ! -f "/usr/local/bin/chamber" ]; then
   chmod +x /usr/local/bin/chamber
 fi
 
-exec "$@"
+chamber exec sentry "$@"

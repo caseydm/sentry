@@ -5,4 +5,4 @@ RUN apt-get update \
     && apt-get install -y golang
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["chamber", "exec", "sentry", "run", "web"]
+CMD ["run", "web"]
