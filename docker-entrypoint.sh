@@ -23,4 +23,13 @@ if [ "$1" = 'sentry' ]; then
 	fi
 fi
 
+CHAMBER_VERSION="2.1.0"
+CHAMBER_URL="https://github.com/segmentio/chamber/releases/download/v${CHAMBER_VERSION}/chamber-v${CHAMBER_VERSION}-linux-amd64"
+
+if [ ! -f "/usr/local/bin/chamber" ]; then
+  echo "Downloading chamber from $CHAMBER_URL"
+  curl -L $CHAMBER_URL -o /usr/local/bin/chamber
+  chmod +x /usr/local/bin/chamber
+fi
+
 exec "$@"
