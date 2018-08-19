@@ -4,7 +4,7 @@ ENV PATH=$PATH:$GOPATH/bin
 RUN set -x \
     && add-apt-repository ppa:gophers/archive \
     && apt-get update \
-    && apt-get install golang-1.10-go \
+    && apt-get install golang \
     && go get github.com/segmentio/chamber
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
