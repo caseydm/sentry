@@ -4,4 +4,4 @@ RUN set -x \
 ENV PATH=$PATH:/usr/local/go/bin
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["chamber", "exec", "run", "web"]
+CMD ["chamber", "exec", "sentry", "run", "web"]
