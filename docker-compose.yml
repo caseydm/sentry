@@ -7,7 +7,6 @@ x-defaults: &defaults
     - redis
     - memcached
     - smtp
-  entrypoint: ["bash", "-c", "chamber exec sentry --"]
   environment:
     SENTRY_MEMCACHED_HOST: memcached
     SENTRY_REDIS_HOST: redis
