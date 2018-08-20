@@ -10,4 +10,6 @@ RUN set -x \
     && mv go /usr/local \
     && go get "github.com/segmentio/chamber" \
     && apt-get purge -y --auto-remove wget
-CMD ["chamber", "exec", "sentry", "--", "run", "web"]
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["run", "web"]
