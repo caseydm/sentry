@@ -35,11 +35,11 @@ services:
 
   cron:
     <<: *defaults
-    command: run cron
+    command: chamber exec sentry -- run cron
 
   worker:
     <<: *defaults
-    command: run worker
+    command: chamber exec sentry -- run cron
 
 
 volumes:
